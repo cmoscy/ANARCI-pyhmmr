@@ -28,14 +28,23 @@ ANARCI -i myfile.fasta
 
 # Installation
 
-The easiest way to install ANARCI and its dependencies is using conda
+Install with pip or uv from this repository (HMMs and germlines are pre-packaged; no IMGT download at install time):
 
-```python
-conda install -c conda-forge biopython -y
-conda install -c bioconda hmmer=3.3.2 -y
-cd ANARCI
-python setup.py install
+```bash
+pip install .
+# or editable: uv pip install -e .
 ```
+
+As a git dependency in another uv-managed project:
+
+```toml
+[tool.uv.sources]
+anarci = { git = "https://github.com/cmoscy/ANARCI-pyhmmr.git" }
+```
+
+Runtime requires **pyhmmer** (declared in `pyproject.toml`). System HMMER `hmmscan` is not required for numbering in this fork.
+
+Maintainers who need to refresh IMGT-derived data: see [build_pipeline/README.md](build_pipeline/README.md).
 
 # Further info
 

@@ -3,17 +3,26 @@
 ########################
 
 Requirements:
-    - HMMER3 version 3.1 or higher - http://hmmer.janelia.org/ 
-	- Biopython
+    - Python >= 3.8
+    - pyhmmer (installed automatically as a package dependency)
 
-To install, simply run:
+To install from a checkout:
 
-python setup.py install
+    pip install .
+    # or: uv pip install -e .
 
-During the installation process, germline data will be downloaded from IMGT/GENE-DB and used to build hidden Markov models.
+To install as a git dependency (e.g. with uv):
 
-For more information about installing python programs see:
-https://docs.python.org/2/install/#alternate-installation-the-user-scheme
+    # In your pyproject.toml:
+    # [tool.uv.sources]
+    # anarci = { git = "https://github.com/cmoscy/ANARCI-pyhmmr.git" }
+
+Germline alignments and HMM databases are bundled with the package. They are
+not downloaded during installation.
+
+To regenerate packaged data from IMGT (maintainers only), see
+build_pipeline/README.md.
 
 For help see README or run:
-$ ANARCI -h
+
+    ANARCI -h

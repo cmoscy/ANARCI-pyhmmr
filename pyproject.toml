@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-ANARCI = "anarci.__main__:main"
+ANARCI = "anarci.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["lib/python"]
